@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QWidget" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>3840</width>
+    <height>2160</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>monc</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(0, 0, 0);</string>
+  </property>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>400</y>
+     <width>3840</width>
+     <height>1560</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(106, 149, 123);</string>
+   </property>
+   <property name="currentIndex">
+    <number>7</number>
+   </property>
+   <widget class="QWidget" name="pageStart">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <widget class="QPushButton" name="btnStart">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>530</y>
+       <width>2500</width>
+       <height>490</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Druk op een knop om door te gaan</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="pageScan">
+    <widget class="QLabel" name="lblScan">
+     <property name="geometry">
+      <rect>
+       <x>1420</x>
+       <y>700</y>
+       <width>1062</width>
+       <height>582</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="resources.qrc">:/Images/Resources/Images/rfid-logo.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="imgScan">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>350</y>
+       <width>3840</width>
+       <height>142</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Houd uw pas tegen de scanner</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblScanError">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>80</y>
+       <width>3840</width>
+       <height>162</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>25</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(164, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Pas geblokkeerd. Neem contact op met uw bank</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnSkipDebug">
+     <property name="geometry">
+      <rect>
+       <x>1820</x>
+       <y>1460</y>
+       <width>200</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Skip</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="pagePincode">
+    <widget class="QLabel" name="lblEnterPin">
+     <property name="geometry">
+      <rect>
+       <x>1490</x>
+       <y>300</y>
+       <width>860</width>
+       <height>182</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>29</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Voer uw pincode in:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="pwPincode">
+     <property name="geometry">
+      <rect>
+       <x>1470</x>
+       <y>620</y>
+       <width>900</width>
+       <height>302</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>80</pointsize>
+       <stylestrategy>PreferAntialias</stylestrategy>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">qproperty-alignment: AlignCenter;
+
+background-color: rgb(186, 189, 182);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Password</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnPinCorrection">
+     <property name="geometry">
+      <rect>
+       <x>1100</x>
+       <y>1120</y>
+       <width>660</width>
+       <height>200</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>A) Correctie</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnPinConfirm">
+     <property name="geometry">
+      <rect>
+       <x>2080</x>
+       <y>1120</y>
+       <width>660</width>
+       <height>200</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>32</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>D) Bevestigen</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblPinError">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>80</y>
+       <width>3840</width>
+       <height>162</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>25</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(164, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Pincode incorrect. U heeft nog .. pogingen</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="pageMenu">
+    <widget class="QPushButton" name="btnSaldo">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>380</y>
+       <width>800</width>
+       <height>300</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>A) Saldo</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnOpnemen">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>880</y>
+       <width>800</width>
+       <height>300</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>B) Opnemen</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnSnel">
+     <property name="geometry">
+      <rect>
+       <x>2340</x>
+       <y>380</y>
+       <width>800</width>
+       <height>300</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>C) Snel €70</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMenuError">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>80</y>
+       <width>3840</width>
+       <height>162</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>25</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(164, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Snel €70 opnemen niet mogelijk. U heeft onvoldoende saldo</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="pageSaldo">
+    <widget class="QLabel" name="lblSaldoText">
+     <property name="geometry">
+      <rect>
+       <x>1320</x>
+       <y>420</y>
+       <width>1200</width>
+       <height>160</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>40</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Uw huidige saldo is:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblSaldo">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>760</y>
+       <width>2500</width>
+       <height>402</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>110</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>-€6.536.356,99</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="pageOpnemen">
+    <widget class="QPushButton" name="btn20">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>380</y>
+       <width>800</width>
+       <height>300</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>A) €20</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn100">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>880</y>
+       <width>800</width>
+       <height>300</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>B) €100</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn500">
+     <property name="geometry">
+      <rect>
+       <x>2340</x>
+       <y>380</y>
+       <width>800</width>
+       <height>300</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>C) €500</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnAnders">
+     <property name="geometry">
+      <rect>
+       <x>2340</x>
+       <y>880</y>
+       <width>800</width>
+       <height>300</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>D) Anders</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblOpnemenError">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>80</y>
+       <width>3840</width>
+       <height>162</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>25</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(164, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Bedrag opnemen niet mogelijk. U heeft onvoldoende saldo</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="pageBon">
+    <widget class="QLabel" name="lblBon">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>-80</y>
+       <width>3840</width>
+       <height>400</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>50</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Wilt u de bon?</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="imgBon">
+     <property name="geometry">
+      <rect>
+       <x>1564</x>
+       <y>280</y>
+       <width>712</width>
+       <height>956</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="resources.qrc">:/Images/Resources/Images/pinbon.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnBonYes">
+     <property name="geometry">
+      <rect>
+       <x>1160</x>
+       <y>1300</y>
+       <width>400</width>
+       <height>200</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>A) Ja</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnBonNo">
+     <property name="geometry">
+      <rect>
+       <x>2280</x>
+       <y>1300</y>
+       <width>400</width>
+       <height>200</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>D) Nee</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="pageAnders">
+    <widget class="QLineEdit" name="txtBedrag">
+     <property name="geometry">
+      <rect>
+       <x>1520</x>
+       <y>660</y>
+       <width>800</width>
+       <height>340</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>100</pointsize>
+       <stylestrategy>PreferAntialias</stylestrategy>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">qproperty-alignment: AlignCenter;
+
+background-color: rgb(186, 189, 182);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Normal</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblBedrag">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>440</y>
+       <width>3840</width>
+       <height>142</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Voer uw bedrag in:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblDescription">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>280</y>
+       <width>3840</width>
+       <height>142</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>24</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Het bedrag moet een veelvoud zijn van 10 en mag niet hoger zijn dan 500</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblAndersError">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>80</y>
+       <width>3840</width>
+       <height>162</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>25</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(164, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Bedrag is incorrect. Dien een bedrag in dat voldoet aan de voorwaarden hieronder</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnBedragCorrectie">
+     <property name="geometry">
+      <rect>
+       <x>1100</x>
+       <y>1080</y>
+       <width>660</width>
+       <height>200</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>A) Correctie</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnBedragConfirm">
+     <property name="geometry">
+      <rect>
+       <x>2080</x>
+       <y>1080</y>
+       <width>660</width>
+       <height>200</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>32</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>D) Bevestigen</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="pageUitgave">
+    <widget class="QLabel" name="lblVergeetNiet">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>40</y>
+       <width>3840</width>
+       <height>300</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>42</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Vergeet niet uw geld en eventueel bon uit te nemen</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblTotziens">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>1220</y>
+       <width>3840</width>
+       <height>300</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>42</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Wij wensen u nog een fijne dag!</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="imgUitgave">
+     <property name="geometry">
+      <rect>
+       <x>1240</x>
+       <y>360</y>
+       <width>1242</width>
+       <height>842</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="resources.qrc">:/Images/Resources/Images/takemoney.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnRestartDebug">
+     <property name="geometry">
+      <rect>
+       <x>1800</x>
+       <y>1460</y>
+       <width>240</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Restart</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="lblTitle">
+   <property name="geometry">
+    <rect>
+     <x>860</x>
+     <y>0</y>
+     <width>2120</width>
+     <height>400</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>40</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(186, 189, 182);</string>
+   </property>
+   <property name="text">
+    <string>Monc - MONEY FOR CORRUPTION</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnStop">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>3340</x>
+     <y>1960</y>
+     <width>500</width>
+     <height>200</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>30</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(211, 215, 207);</string>
+   </property>
+   <property name="text">
+    <string>#) Stop</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnBack">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>1960</y>
+     <width>500</width>
+     <height>200</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>30</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(211, 215, 207);</string>
+   </property>
+   <property name="text">
+    <string>*) Terug</string>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
