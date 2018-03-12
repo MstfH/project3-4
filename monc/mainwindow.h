@@ -45,6 +45,10 @@ private slots:
 
     void on_btn100_pressed();
 
+    void on_btn200_clicked();
+
+    void on_btn50_clicked();
+
     void on_btn500_pressed();
 
     void on_btnAnders_pressed();
@@ -66,7 +70,8 @@ private slots:
     void on_btnSkipDebug_pressed();
 
     void on_btnRestartDebug_pressed();
-	
+
+
 private:
     Ui::MainWindow *ui;
 };

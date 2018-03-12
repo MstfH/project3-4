@@ -10,6 +10,11 @@
     <height>2160</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>monc</string>
   </property>
@@ -32,23 +37,29 @@
     <string notr="true">background-color: rgb(106, 149, 123);</string>
    </property>
    <property name="currentIndex">
-    <number>7</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="pageStart">
     <property name="enabled">
      <bool>true</bool>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
     <widget class="QPushButton" name="btnStart">
      <property name="geometry">
       <rect>
        <x>670</x>
-       <y>530</y>
+       <y>1010</y>
        <width>2500</width>
        <height>490</height>
       </rect>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>48</pointsize>
       </font>
      </property>
@@ -56,8 +67,35 @@
       <string>Druk op een knop om door te gaan</string>
      </property>
     </widget>
+    <widget class="QLabel" name="moto">
+     <property name="geometry">
+      <rect>
+       <x>1325</x>
+       <y>60</y>
+       <width>1190</width>
+       <height>830</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="resources.qrc">:/Images/Resources/Images/gimmeyourmoney.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="pageScan">
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
     <widget class="QLabel" name="lblScan">
      <property name="geometry">
       <rect>
@@ -69,6 +107,7 @@
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>10</pointsize>
       </font>
      </property>
@@ -96,6 +135,7 @@
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>36</pointsize>
       </font>
      </property>
@@ -117,14 +157,17 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>25</pointsize>
+       <family>Arial</family>
+       <pointsize>30</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(164, 0, 0);</string>
      </property>
      <property name="text">
-      <string>Pas geblokkeerd. Neem contact op met uw bank</string>
+      <string>Pas geblokkeerd</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -139,42 +182,35 @@
        <height>50</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+      </font>
+     </property>
      <property name="text">
-      <string>Skip</string>
+      <string>Debug</string>
      </property>
     </widget>
    </widget>
    <widget class="QWidget" name="pagePincode">
-    <widget class="QLabel" name="lblEnterPin">
-     <property name="geometry">
-      <rect>
-       <x>1490</x>
-       <y>300</y>
-       <width>860</width>
-       <height>182</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>29</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Voer uw pincode in:</string>
-     </property>
-    </widget>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
     <widget class="QLineEdit" name="pwPincode">
      <property name="geometry">
       <rect>
        <x>1470</x>
-       <y>620</y>
+       <y>529</y>
        <width>900</width>
        <height>302</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>80</pointsize>
+       <family>Arial</family>
+       <pointsize>36</pointsize>
        <stylestrategy>PreferAntialias</stylestrategy>
       </font>
      </property>
@@ -186,11 +222,17 @@
 
 background-color: rgb(186, 189, 182);</string>
      </property>
+     <property name="inputMask">
+      <string/>
+     </property>
      <property name="text">
       <string/>
      </property>
      <property name="echoMode">
       <enum>QLineEdit::Password</enum>
+     </property>
+     <property name="placeholderText">
+      <string>Pincode</string>
      </property>
     </widget>
     <widget class="QPushButton" name="btnPinCorrection">
@@ -204,6 +246,7 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>36</pointsize>
       </font>
      </property>
@@ -216,12 +259,13 @@ background-color: rgb(186, 189, 182);</string>
       <rect>
        <x>2080</x>
        <y>1120</y>
-       <width>660</width>
+       <width>664</width>
        <height>200</height>
       </rect>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>32</pointsize>
       </font>
      </property>
@@ -240,14 +284,17 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>25</pointsize>
+       <family>Arial</family>
+       <pointsize>30</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(164, 0, 0);</string>
      </property>
      <property name="text">
-      <string>Pincode incorrect. U heeft nog .. pogingen</string>
+      <string>Pincode incorrect.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -255,10 +302,15 @@ background-color: rgb(186, 189, 182);</string>
     </widget>
    </widget>
    <widget class="QWidget" name="pageMenu">
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
     <widget class="QPushButton" name="btnSaldo">
      <property name="geometry">
       <rect>
-       <x>700</x>
+       <x>0</x>
        <y>380</y>
        <width>800</width>
        <height>300</height>
@@ -266,6 +318,7 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>36</pointsize>
       </font>
      </property>
@@ -276,7 +329,7 @@ background-color: rgb(186, 189, 182);</string>
     <widget class="QPushButton" name="btnOpnemen">
      <property name="geometry">
       <rect>
-       <x>700</x>
+       <x>0</x>
        <y>880</y>
        <width>800</width>
        <height>300</height>
@@ -284,6 +337,7 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>36</pointsize>
       </font>
      </property>
@@ -294,7 +348,7 @@ background-color: rgb(186, 189, 182);</string>
     <widget class="QPushButton" name="btnSnel">
      <property name="geometry">
       <rect>
-       <x>2340</x>
+       <x>3040</x>
        <y>380</y>
        <width>800</width>
        <height>300</height>
@@ -302,6 +356,7 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>36</pointsize>
       </font>
      </property>
@@ -320,14 +375,17 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>25</pointsize>
+       <family>Arial</family>
+       <pointsize>30</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(164, 0, 0);</string>
      </property>
      <property name="text">
-      <string>Snel €70 opnemen niet mogelijk. U heeft onvoldoende saldo</string>
+      <string>€70 opnemen niet mogelijk. U heeft onvoldoende saldo</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -335,6 +393,11 @@ background-color: rgb(186, 189, 182);</string>
     </widget>
    </widget>
    <widget class="QWidget" name="pageSaldo">
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
     <widget class="QLabel" name="lblSaldoText">
      <property name="geometry">
       <rect>
@@ -346,11 +409,15 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>40</pointsize>
       </font>
      </property>
      <property name="text">
       <string>Uw huidige saldo is:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
     <widget class="QLabel" name="lblSaldo">
@@ -364,6 +431,7 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>110</pointsize>
       </font>
      </property>
@@ -376,104 +444,162 @@ background-color: rgb(186, 189, 182);</string>
     </widget>
    </widget>
    <widget class="QWidget" name="pageOpnemen">
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
     <widget class="QPushButton" name="btn20">
      <property name="geometry">
       <rect>
-       <x>700</x>
-       <y>380</y>
+       <x>0</x>
+       <y>60</y>
        <width>800</width>
        <height>300</height>
       </rect>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>36</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>A) €20</string>
+      <string>1) €20</string>
      </property>
     </widget>
     <widget class="QPushButton" name="btn100">
      <property name="geometry">
       <rect>
-       <x>700</x>
-       <y>880</y>
+       <x>0</x>
+       <y>1200</y>
        <width>800</width>
        <height>300</height>
       </rect>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>36</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>B) €100</string>
+      <string>3) €100</string>
      </property>
     </widget>
     <widget class="QPushButton" name="btn500">
      <property name="geometry">
       <rect>
-       <x>2340</x>
-       <y>380</y>
+       <x>3040</x>
+       <y>630</y>
        <width>800</width>
        <height>300</height>
       </rect>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>36</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>C) €500</string>
+      <string>5) €500</string>
      </property>
     </widget>
     <widget class="QPushButton" name="btnAnders">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
-       <x>2340</x>
-       <y>880</y>
+       <x>3040</x>
+       <y>1200</y>
        <width>800</width>
        <height>300</height>
       </rect>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>36</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>D) Anders</string>
+      <string>6) Anders</string>
      </property>
     </widget>
     <widget class="QLabel" name="lblOpnemenError">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>820</x>
        <y>80</y>
-       <width>3840</width>
+       <width>2200</width>
        <height>162</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>25</pointsize>
+       <family>Arial</family>
+       <pointsize>30</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(164, 0, 0);</string>
      </property>
      <property name="text">
-      <string>Bedrag opnemen niet mogelijk. U heeft onvoldoende saldo</string>
+      <string>U heeft onvoldoende saldo</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+    <widget class="QPushButton" name="btn50">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>630</y>
+       <width>800</width>
+       <height>300</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>2) €50</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn200">
+     <property name="geometry">
+      <rect>
+       <x>3040</x>
+       <y>60</y>
+       <width>800</width>
+       <height>300</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>4) €200</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="pageBon">
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
     <widget class="QLabel" name="lblBon">
      <property name="geometry">
       <rect>
@@ -485,6 +611,7 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>50</pointsize>
       </font>
      </property>
@@ -503,6 +630,11 @@ background-color: rgb(186, 189, 182);</string>
        <width>712</width>
        <height>956</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+      </font>
      </property>
      <property name="text">
       <string/>
@@ -528,6 +660,7 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>36</pointsize>
       </font>
      </property>
@@ -546,6 +679,7 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>36</pointsize>
       </font>
      </property>
@@ -555,18 +689,24 @@ background-color: rgb(186, 189, 182);</string>
     </widget>
    </widget>
    <widget class="QWidget" name="pageAnders">
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
     <widget class="QLineEdit" name="txtBedrag">
      <property name="geometry">
       <rect>
        <x>1520</x>
-       <y>660</y>
+       <y>550</y>
        <width>800</width>
        <height>340</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>100</pointsize>
+       <family>Arial</family>
+       <pointsize>36</pointsize>
        <stylestrategy>PreferAntialias</stylestrategy>
       </font>
      </property>
@@ -584,26 +724,8 @@ background-color: rgb(186, 189, 182);</string>
      <property name="echoMode">
       <enum>QLineEdit::Normal</enum>
      </property>
-    </widget>
-    <widget class="QLabel" name="lblBedrag">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>440</y>
-       <width>3840</width>
-       <height>142</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>36</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Voer uw bedrag in:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
+     <property name="placeholderText">
+      <string>Bedrag</string>
      </property>
     </widget>
     <widget class="QLabel" name="lblDescription">
@@ -617,6 +739,7 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>24</pointsize>
       </font>
      </property>
@@ -638,7 +761,10 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>25</pointsize>
+       <family>Arial</family>
+       <pointsize>29</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
@@ -662,6 +788,7 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>36</pointsize>
       </font>
      </property>
@@ -680,6 +807,7 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>32</pointsize>
       </font>
      </property>
@@ -689,6 +817,11 @@ background-color: rgb(186, 189, 182);</string>
     </widget>
    </widget>
    <widget class="QWidget" name="pageUitgave">
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
     <widget class="QLabel" name="lblVergeetNiet">
      <property name="geometry">
       <rect>
@@ -700,6 +833,7 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>42</pointsize>
       </font>
      </property>
@@ -721,6 +855,7 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>42</pointsize>
       </font>
      </property>
@@ -739,6 +874,11 @@ background-color: rgb(186, 189, 182);</string>
        <width>1242</width>
        <height>842</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+      </font>
      </property>
      <property name="text">
       <string/>
@@ -764,6 +904,7 @@ background-color: rgb(186, 189, 182);</string>
      </property>
      <property name="font">
       <font>
+       <family>Arial</family>
        <pointsize>8</pointsize>
       </font>
      </property>
@@ -776,14 +917,15 @@ background-color: rgb(186, 189, 182);</string>
   <widget class="QLabel" name="lblTitle">
    <property name="geometry">
     <rect>
-     <x>860</x>
+     <x>0</x>
      <y>0</y>
-     <width>2120</width>
+     <width>3840</width>
      <height>400</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>Arial</family>
      <pointsize>40</pointsize>
     </font>
    </property>
@@ -811,6 +953,7 @@ background-color: rgb(186, 189, 182);</string>
    </property>
    <property name="font">
     <font>
+     <family>Arial</family>
      <pointsize>30</pointsize>
     </font>
    </property>
@@ -835,6 +978,7 @@ background-color: rgb(186, 189, 182);</string>
    </property>
    <property name="font">
     <font>
+     <family>Arial</family>
      <pointsize>30</pointsize>
     </font>
    </property>

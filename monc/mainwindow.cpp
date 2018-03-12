@@ -178,6 +178,15 @@ void MainWindow::on_btn20_pressed()
 
 }
 
+void MainWindow::on_btn200_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(6);
+
+    ui->btnBack->setVisible(false);
+
+    ui->btnStop->setVisible(false);
+}
+
 
 
 void MainWindow::on_btn100_pressed()
@@ -192,7 +201,14 @@ void MainWindow::on_btn100_pressed()
 
 }
 
+void MainWindow::on_btn50_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(6);
 
+    ui->btnBack->setVisible(false);
+
+    ui->btnStop->setVisible(false);
+}
 
 void MainWindow::on_btn500_pressed()
 
