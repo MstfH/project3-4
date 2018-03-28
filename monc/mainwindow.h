@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QWidget>
+#include <QCloseEvent>
 
 namespace Ui {
 class MainWindow;
@@ -14,66 +15,47 @@ class MainWindow : public QWidget
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    int getIndex();
 
-private slots:
+public slots:
+    void on_buttonBack_pressed();
+    void on_buttonStop_pressed();
 
-    void on_btnBack_pressed();
+    void on_buttonStart_pressed();
 
-    void on_btnStop_pressed();
+    void on_buttonPinCorrection_pressed();
+    void on_buttonPinConfirm_pressed();
 
+    void on_buttonSaldo_pressed();
+    void on_buttonOpnemen_pressed();
+    void on_buttonSnel_pressed();
 
+    void on_button100_pressed();
+    void on_button20_pressed();
+    void on_button200_pressed();
+    void on_button50_pressed();
+    void on_button500_pressed();
+    void on_buttonAnders_pressed();
 
-    void on_btnStart_pressed();
+    void on_buttonBedragCorrectie_pressed();
+    void on_buttonBedragConfirm_pressed();
 
+    void on_buttonBonYes_pressed();
+    void on_buttonBonNo_pressed();
 
+    void on_buttonSkipDebug_pressed();
+    void on_buttonSkipDebug_pressed(QByteArray nuid);
+    void on_buttonRestartDebug_pressed();
 
-    void on_btnPinCorrection_pressed();
+    void insertPincode(QByteArray key);
+    void insertAnderBedrag(QByteArray key);
 
-    void on_btnPinConfirm_pressed();
-
-
-
-    void on_btnSaldo_pressed();
-
-    void on_btnOpnemen_pressed();
-
-    void on_btnSnel_pressed();
-
-
-
-    void on_btn20_pressed();
-
-    void on_btn100_pressed();
-
-    void on_btn200_clicked();
-
-    void on_btn50_clicked();
-
-    void on_btn500_pressed();
-
-    void on_btnAnders_pressed();
-
-
-
-    void on_btnBedragCorrectie_pressed();
-
-    void on_btnBedragConfirm_pressed();
-
-
-
-    void on_btnBonYes_pressed();
-
-    void on_btnBonNo_pressed();
-
-
-
-    void on_btnSkipDebug_pressed();
-
-    void on_btnRestartDebug_pressed();
-
+    void closeEvent(QCloseEvent *event) override;
 
 private:
     Ui::MainWindow *ui;
+    static QString pincode;
+    static QString anderBedrag;
 };
 
 #endif // MAINWINDOW_H

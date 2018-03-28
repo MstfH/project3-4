@@ -37,9 +37,9 @@
     <string notr="true">background-color: rgb(106, 149, 123);</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>9</number>
    </property>
-   <widget class="QWidget" name="pageStart">
+   <widget class="QWidget" name="start">
     <property name="enabled">
      <bool>true</bool>
     </property>
@@ -48,7 +48,7 @@
       <family>Arial</family>
      </font>
     </property>
-    <widget class="QPushButton" name="btnStart">
+    <widget class="QPushButton" name="buttonStart">
      <property name="geometry">
       <rect>
        <x>670</x>
@@ -90,13 +90,13 @@
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="pageScan">
+   <widget class="QWidget" name="pasScan">
     <property name="font">
      <font>
       <family>Arial</family>
      </font>
     </property>
-    <widget class="QLabel" name="lblScan">
+    <widget class="QLabel" name="labelScan">
      <property name="geometry">
       <rect>
        <x>1420</x>
@@ -146,7 +146,7 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="lblScanError">
+    <widget class="QLabel" name="labelScanError">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -167,13 +167,13 @@
       <string notr="true">color: rgb(164, 0, 0);</string>
      </property>
      <property name="text">
-      <string>Pas geblokkeerd</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnSkipDebug">
+    <widget class="QPushButton" name="buttonSkipDebug">
      <property name="geometry">
       <rect>
        <x>1820</x>
@@ -192,7 +192,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="pagePincode">
+   <widget class="QWidget" name="pincodeInvoeren">
     <property name="font">
      <font>
       <family>Arial</family>
@@ -235,7 +235,7 @@ background-color: rgb(186, 189, 182);</string>
       <string>Pincode</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnPinCorrection">
+    <widget class="QPushButton" name="buttonPinCorrection">
      <property name="geometry">
       <rect>
        <x>1100</x>
@@ -254,7 +254,7 @@ background-color: rgb(186, 189, 182);</string>
       <string>A) Correctie</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnPinConfirm">
+    <widget class="QPushButton" name="buttonPinConfirm">
      <property name="geometry">
       <rect>
        <x>2080</x>
@@ -273,7 +273,7 @@ background-color: rgb(186, 189, 182);</string>
       <string>D) Bevestigen</string>
      </property>
     </widget>
-    <widget class="QLabel" name="lblPinError">
+    <widget class="QLabel" name="labelPinError">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -294,20 +294,20 @@ background-color: rgb(186, 189, 182);</string>
       <string notr="true">color: rgb(164, 0, 0);</string>
      </property>
      <property name="text">
-      <string>Pincode incorrect.</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="pageMenu">
+   <widget class="QWidget" name="menu">
     <property name="font">
      <font>
       <family>Arial</family>
      </font>
     </property>
-    <widget class="QPushButton" name="btnSaldo">
+    <widget class="QPushButton" name="buttonSaldo">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -326,7 +326,7 @@ background-color: rgb(186, 189, 182);</string>
       <string>A) Saldo</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnOpnemen">
+    <widget class="QPushButton" name="buttonOpnemen">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -345,7 +345,7 @@ background-color: rgb(186, 189, 182);</string>
       <string>B) Opnemen</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnSnel">
+    <widget class="QPushButton" name="buttonSnel">
      <property name="geometry">
       <rect>
        <x>3040</x>
@@ -364,7 +364,7 @@ background-color: rgb(186, 189, 182);</string>
       <string>C) Snel €70</string>
      </property>
     </widget>
-    <widget class="QLabel" name="lblMenuError">
+    <widget class="QLabel" name="labelMenuError">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -385,20 +385,20 @@ background-color: rgb(186, 189, 182);</string>
       <string notr="true">color: rgb(164, 0, 0);</string>
      </property>
      <property name="text">
-      <string>€70 opnemen niet mogelijk. U heeft onvoldoende saldo</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="pageSaldo">
+   <widget class="QWidget" name="saldo">
     <property name="font">
      <font>
       <family>Arial</family>
      </font>
     </property>
-    <widget class="QLabel" name="lblSaldoText">
+    <widget class="QLabel" name="labelSaldoText">
      <property name="geometry">
       <rect>
        <x>1320</x>
@@ -420,7 +420,7 @@ background-color: rgb(186, 189, 182);</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="lblSaldo">
+    <widget class="QLabel" name="labelSaldo">
      <property name="geometry">
       <rect>
        <x>670</x>
@@ -443,13 +443,13 @@ background-color: rgb(186, 189, 182);</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="pageOpnemen">
+   <widget class="QWidget" name="opnemen">
     <property name="font">
      <font>
       <family>Arial</family>
      </font>
     </property>
-    <widget class="QPushButton" name="btn20">
+    <widget class="QPushButton" name="button20">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -468,7 +468,7 @@ background-color: rgb(186, 189, 182);</string>
       <string>1) €20</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btn100">
+    <widget class="QPushButton" name="button100">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -487,7 +487,7 @@ background-color: rgb(186, 189, 182);</string>
       <string>3) €100</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btn500">
+    <widget class="QPushButton" name="button500">
      <property name="geometry">
       <rect>
        <x>3040</x>
@@ -506,7 +506,7 @@ background-color: rgb(186, 189, 182);</string>
       <string>5) €500</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnAnders">
+    <widget class="QPushButton" name="buttonAnders">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -528,7 +528,7 @@ background-color: rgb(186, 189, 182);</string>
       <string>6) Anders</string>
      </property>
     </widget>
-    <widget class="QLabel" name="lblOpnemenError">
+    <widget class="QLabel" name="labelOpnemenError">
      <property name="geometry">
       <rect>
        <x>820</x>
@@ -549,13 +549,13 @@ background-color: rgb(186, 189, 182);</string>
       <string notr="true">color: rgb(164, 0, 0);</string>
      </property>
      <property name="text">
-      <string>U heeft onvoldoende saldo</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="btn50">
+    <widget class="QPushButton" name="button50">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -574,7 +574,7 @@ background-color: rgb(186, 189, 182);</string>
       <string>2) €50</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btn200">
+    <widget class="QPushButton" name="button200">
      <property name="geometry">
       <rect>
        <x>3040</x>
@@ -594,13 +594,13 @@ background-color: rgb(186, 189, 182);</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="pageBon">
+   <widget class="QWidget" name="bonKeuze">
     <property name="font">
      <font>
       <family>Arial</family>
      </font>
     </property>
-    <widget class="QLabel" name="lblBon">
+    <widget class="QLabel" name="labelBon">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -649,7 +649,7 @@ background-color: rgb(186, 189, 182);</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnBonYes">
+    <widget class="QPushButton" name="buttonBonYes">
      <property name="geometry">
       <rect>
        <x>1160</x>
@@ -668,7 +668,7 @@ background-color: rgb(186, 189, 182);</string>
       <string>A) Ja</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnBonNo">
+    <widget class="QPushButton" name="buttonBonNo">
      <property name="geometry">
       <rect>
        <x>2280</x>
@@ -688,7 +688,7 @@ background-color: rgb(186, 189, 182);</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="pageAnders">
+   <widget class="QWidget" name="anderBedrag">
     <property name="font">
      <font>
       <family>Arial</family>
@@ -728,7 +728,7 @@ background-color: rgb(186, 189, 182);</string>
       <string>Bedrag</string>
      </property>
     </widget>
-    <widget class="QLabel" name="lblDescription">
+    <widget class="QLabel" name="labelDescription">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -750,7 +750,7 @@ background-color: rgb(186, 189, 182);</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="lblAndersError">
+    <widget class="QLabel" name="labelAndersError">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -771,13 +771,13 @@ background-color: rgb(186, 189, 182);</string>
       <string notr="true">color: rgb(164, 0, 0);</string>
      </property>
      <property name="text">
-      <string>Bedrag is incorrect. Dien een bedrag in dat voldoet aan de voorwaarden hieronder</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnBedragCorrectie">
+    <widget class="QPushButton" name="buttonBedragCorrectie">
      <property name="geometry">
       <rect>
        <x>1100</x>
@@ -796,7 +796,7 @@ background-color: rgb(186, 189, 182);</string>
       <string>A) Correctie</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnBedragConfirm">
+    <widget class="QPushButton" name="buttonBedragConfirm">
      <property name="geometry">
       <rect>
        <x>2080</x>
@@ -816,13 +816,13 @@ background-color: rgb(186, 189, 182);</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="pageUitgave">
+   <widget class="QWidget" name="uitgifte">
     <property name="font">
      <font>
       <family>Arial</family>
      </font>
     </property>
-    <widget class="QLabel" name="lblVergeetNiet">
+    <widget class="QLabel" name="labelOnthoudGeld">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -844,7 +844,7 @@ background-color: rgb(186, 189, 182);</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="lblTotziens">
+    <widget class="QLabel" name="labelTotziens">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -866,7 +866,7 @@ background-color: rgb(186, 189, 182);</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="imgUitgave">
+    <widget class="QLabel" name="imgUitgifte">
      <property name="geometry">
       <rect>
        <x>1240</x>
@@ -893,7 +893,7 @@ background-color: rgb(186, 189, 182);</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnRestartDebug">
+    <widget class="QPushButton" name="buttonRestartDebug">
      <property name="geometry">
       <rect>
        <x>1800</x>
@@ -913,8 +913,34 @@ background-color: rgb(186, 189, 182);</string>
      </property>
     </widget>
    </widget>
+   <widget class="QWidget" name="Error">
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
+    <widget class="QLabel" name="labelErrorMessage">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>500</y>
+       <width>3840</width>
+       <height>200</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>50</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
   </widget>
-  <widget class="QLabel" name="lblTitle">
+  <widget class="QLabel" name="labelTitle">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -939,7 +965,7 @@ background-color: rgb(186, 189, 182);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="btnStop">
+  <widget class="QPushButton" name="buttonStop">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -964,7 +990,7 @@ background-color: rgb(186, 189, 182);</string>
     <string>#) Stop</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="btnBack">
+  <widget class="QPushButton" name="buttonBack">
    <property name="enabled">
     <bool>true</bool>
    </property>

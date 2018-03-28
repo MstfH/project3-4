@@ -40,8 +40,6 @@ void setup(){
   
   SPI.begin(); // Init SPI bus
   rfid.PCD_Init(); // Init MFRC522 
-
-  Serial.println("Arduino");
 }
 
 void loop(){
@@ -49,6 +47,7 @@ void loop(){
 
   //Keypress detected. Print key
   if (key != NO_KEY){
+    Serial.print("K: ");
     Serial.println(key);
   }
 
@@ -72,6 +71,7 @@ void loop(){
   }
 
   // Print NUID
+  Serial.print("R: ");
   printHex(rfid.uid.uidByte, rfid.uid.size);
   Serial.println();
 
