@@ -47,7 +47,7 @@ void loop(){
 
   //Keypress detected. Print key
   if (key != NO_KEY){
-    Serial.print("K: ");
+    Serial.print("KEY: ");
     Serial.println(key);
   }
 
@@ -71,7 +71,7 @@ void loop(){
   }
 
   // Print NUID
-  Serial.print("R: ");
+  Serial.print("RFID: ");
   printHex(rfid.uid.uidByte, rfid.uid.size);
   Serial.println();
 
