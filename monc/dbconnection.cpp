@@ -5,18 +5,18 @@
 #include <string>
 
 QSqlDatabase dbconnection::db;
-QByteArray dbconnection::Pasnummer;
-QByteArray dbconnection::Rekeningnummer;
+QByteArray dbconnection::nuid;
+QByteArray dbconnection::iban;
 QByteArray dbconnection::transactie;
 
 dbconnection::dbconnection()
 {
-    db = QSqlDatabase::addDatabase("QMYSQL", "monc");
-    db.setHostName("127.0.0.1");
-    db.setDatabaseName("monc");
-    db.setUserName("atm");
-    db.setPassword("password");
-    db.setPort(3306);
+    db = QSqlDatabase::addDatabase("QMYSQL", "saatbank");
+    db.setHostName("145.24.222.155");
+    db.setDatabaseName("saatbank");
+    db.setUserName("monc");
+    db.setPassword("2eAzWh2YqztmMVwq");
+    db.setPort(8888);
     bool ok = db.open();
     if(ok) {
         qDebug("Db connection established");
@@ -29,15 +29,15 @@ dbconnection::dbconnection()
 bool dbconnection::card(QByteArray data)
 {
     QSqlQuery query(db);
-    query.exec("SELECT Pasnummer FROM monc.debitcard WHERE Pasnummer = '" + data + "';");
+    query.exec("SELECT nuid FROM `card` WHERE nuid = '" + data + "';");
     if(query.next())
     {
-        Pasnummer = query.value(0).toByteArray();
+        nuid = query.value(0).toByteArray();
         return true;
     }
     else
     {
-        qDebug("No result");
+        qWarning("No result");
     }
     return false;
 }
@@ -45,7 +45,7 @@ bool dbconnection::card(QByteArray data)
 bool dbconnection::blocked()
 {
     QSqlQuery query(db);
-    query.exec("SELECT Kansen FROM monc.debitcard WHERE Pasnummer = '" + Pasnummer + "';");
+    query.exec("SELECT attempts FROM `card` WHERE nuid = '" + nuid + "';");
     if(query.next())
     {
         if(query.value(0).toInt()>=3)
@@ -55,7 +55,7 @@ bool dbconnection::blocked()
     }
     else
     {
-        qDebug("No result");
+        qWarning("No result");
     }
     return false;
 }
@@ -63,15 +63,15 @@ bool dbconnection::blocked()
 bool dbconnection::getIban()
 {
     QSqlQuery query(db);
-    query.exec("SELECT Rekeningnummer FROM monc.debitcard WHERE Rekeningnummer='"+Pasnummer+"' LIMIT 1;");
+    query.exec("SELECT iban FROM `cardaccount` WHERE nuid='"+nuid+"' LIMIT 1;");
     if(query.next())
     {
-        Rekeningnummer = query.value(0).toByteArray();
+        iban = query.value(0).toByteArray();
         return true;
     }
     else
     {
-        qDebug("No result");
+        qWarning("No result");
     }
     return false;
 }
@@ -79,60 +79,33 @@ bool dbconnection::getIban()
 int dbconnection::checkPin(QString pin)
 {
     QSqlQuery query(db);
-    query.exec("SELECT Pasnummer, Pincode, Kansen FROM monc.debitcard WHERE Pasnummer='"+Pasnummer+"';");
+    query.exec("SELECT nuid, pincode, attempts FROM `card` WHERE nuid='"+nuid+"';");
     if(query.next() && query.value(1).toString() == pin)
     {
-        query.exec("UPDATE `monc`.`debitcard` SET `Kansen`='0' WHERE `Pasnummer`='"+Pasnummer+"';");
+        query.exec("UPDATE `card` SET `attempts`='0' WHERE `nuid`='"+nuid+"';");
         return 0;
     }
     else
     {
-        int Kansen = query.value(2).toInt();
-        query.exec("UPDATE `monc`.`debitcard` SET `Kansen`='"+QByteArray::number(Kansen+1)+"' WHERE `Pasnummer`='"+Pasnummer+"';");
-        return Kansen+1;
+        int attempts = query.value(2).toInt();
+        query.exec("UPDATE `card` SET `attempts`='"+QByteArray::number(attempts+1)+"' WHERE `nuid`='"+nuid+"';");
+        return attempts+1;
     }
-}
-
-bool dbconnection::createTransaction()
-{
-    QSqlQuery query(db);
-    query.exec("INSERT INTO `monc`.`transacties` (`Rekeningnummer`) VALUES ('"+Rekeningnummer+"');");
-    query.exec("SELECT max(transactieID) FROM `monc`.`transacties`;");
-    if(query.next()){
-        transactie = query.value(0).toByteArray();
-        return true;
-    }
-    return false;
-}
-
-bool dbconnection::updateTransaction(float amount)
-{
-    QSqlQuery query(db);
-    QByteArray stringAmount = QByteArray::number(amount);
-    query.exec("UPDATE `monc`.`transacties` SET `HoeveelGeld`='"+stringAmount+"', `Datum`=current_timestamp() WHERE `transactieID`='"+transactie+"';");
-    return true;
 }
 
 float dbconnection::getSaldo()
 {
     QSqlQuery query(db);
-    query.exec("SELECT Saldo FROM monc.accounts WHERE Rekeningnummer='"+Rekeningnummer+"';");
+    query.exec("SELECT balance FROM `account` WHERE iban='"+iban+"';");
     if(query.next())
     {
         return query.value(0).toFloat();
     }
     else
     {
-        qDebug("No result");
+        qWarning("No result");
     }
     return -9999.9;
-}
-
-bool dbconnection::newAction(QByteArray action, float amount)
-{
-    QSqlQuery query(db);
-    query.exec("INSERT INTO `monc`.`transacties` (`transactieID`, `Beschrijving`, `HoeveelGeld`) VALUES ('"+transactie+"', '"+action+"','"+QByteArray::number(amount)+"');");
-    return true;
 }
 
 bool dbconnection::withdraw(float amount)
@@ -140,22 +113,28 @@ bool dbconnection::withdraw(float amount)
     QSqlQuery query(db);
     float newAmount = getSaldo() - amount;
     if(newAmount >= 0){
-        query.exec("UPDATE `monc`.`accounts` SET `Saldo`='"+QByteArray::number(newAmount)+"' WHERE `Rekeningnummer`='"+Rekeningnummer+"';");
+        query.exec("INSERT INTO `transaction` (`iban`, `amount`, `atm_id`) VALUES ('"+ iban +"', '"+ QByteArray::number(amount*-1) +"', 'MONC');");
+        query.exec("UPDATE `account` SET `balance`='"+QByteArray::number(newAmount)+"' WHERE `iban`='"+iban+"';");
         return true;
     }
     return false;
 }
 
+void dbconnection::log(QByteArray message)
+{
+    QSqlQuery query(db);
+    query.exec("INSERT INTO `log` (`message`, `atm_id`) VALUES ('"+message+"', 'MONC');");
+}
+
 void dbconnection::stop()
 {
-    Pasnummer = nullptr;
+    nuid = nullptr;
     transactie = nullptr;
-    Rekeningnummer = nullptr;
+    iban = nullptr;
 }
 
 void dbconnection::close()
 {
     db.close();
-    qDebug("Db connection closed");
+    qWarning("Db connection closed");
 }
-

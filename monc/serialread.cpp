@@ -12,12 +12,12 @@ SerialRead::SerialRead(InputArduino* _inputArduino)
 {
     inputArduino = _inputArduino;
     qDebug() << "Serial begin";
-    SerialRead::serialArduino.setPortName("COM6");
+    SerialRead::serialArduino.setPortName("/dev/ttyACM0");
     SerialRead::serialArduino.setBaudRate(QSerialPort::Baud9600);
-    //SerialRead::serialArduino.setDataBits(QSerialPort::Data8);
-    //SerialRead::serialArduino.setParity(QSerialPort::NoParity);
-    //SerialRead::serialArduino.setFlowControl(QSerialPort::NoFlowControl);
-    //SerialRead::serialArduino.setStopBits(QSerialPort::OneStop);
+    SerialRead::serialArduino.setDataBits(QSerialPort::Data8);
+    SerialRead::serialArduino.setParity(QSerialPort::NoParity);
+    SerialRead::serialArduino.setFlowControl(QSerialPort::NoFlowControl);
+    SerialRead::serialArduino.setStopBits(QSerialPort::OneStop);
     SerialRead::serialArduino.open(QIODevice::ReadOnly);
 }
 
@@ -27,6 +27,7 @@ void SerialRead::serialReceived()
     {
         //readyRead() is emitted
         QByteArray datas = SerialRead::serialArduino.readAll();
+        //qDebug() << datas;
         charBuffer.append(datas);
         if(datas.contains("\n"))
         {

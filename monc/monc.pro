@@ -6,6 +6,8 @@
 
 QT       += core gui serialport sql
 
+QTPLUGIN +=QMYSQL
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = monc
