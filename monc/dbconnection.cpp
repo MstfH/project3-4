@@ -16,7 +16,7 @@ dbconnection::dbconnection()
     db.setDatabaseName("saatbank");
     db.setUserName("monc");
     db.setPassword("2eAzWh2YqztmMVwq");
-    db.setPort(8888);
+    db.setPort(8888);//open poort op hogeschool server vinden
     bool ok = db.open();
     if(ok) {
         qDebug("Db connection established");

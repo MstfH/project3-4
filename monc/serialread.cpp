@@ -12,7 +12,7 @@ SerialRead::SerialRead(InputArduino* _inputArduino)
 {
     inputArduino = _inputArduino;
     qDebug() << "Serial begin";
-    SerialRead::serialArduino.setPortName("/dev/ttyACM0");
+    SerialRead::serialArduino.setPortName("/dev/ttyACM0");//Voor Windows goeie usb poort invullen COMX
     SerialRead::serialArduino.setBaudRate(QSerialPort::Baud9600);
     SerialRead::serialArduino.setDataBits(QSerialPort::Data8);
     SerialRead::serialArduino.setParity(QSerialPort::NoParity);
