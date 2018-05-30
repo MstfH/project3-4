@@ -1,4 +1,4 @@
-#ifndef DBCONNECTION_H
+ #ifndef DBCONNECTION_H
 #define DBCONNECTION_H
 
 #include <QtSql/QSqlDatabase>
@@ -8,8 +8,8 @@ class dbconnection
 {
 private:
     static QSqlDatabase db;
-    static QByteArray Pasnummer;
-    static QByteArray Rekeningnummer;
+    static QByteArray nuid;
+    static QByteArray iban;
     static QByteArray transactie;
 public:
     dbconnection();
@@ -17,11 +17,9 @@ public:
     static bool getIban();
     static int checkPin(QString pin);
     static bool blocked();
-    static bool createTransaction();
-    static bool updateTransaction(float amount);
     static float getSaldo();
-    static bool newAction(QByteArray action, float amount);
     static bool withdraw(float amount);
+    static void log(QByteArray message);
     static void stop();
     static void close();
 };

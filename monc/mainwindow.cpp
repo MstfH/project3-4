@@ -33,6 +33,7 @@ void MainWindow::on_buttonBack_pressed()
     case 4:
         ui->stackedWidget->setCurrentIndex(3);
         ui->buttonBack->setVisible(false);
+        dbconnection::log("Returned to menu");
         break;
     case 5:
         ui->stackedWidget->setCurrentIndex(3);
@@ -40,6 +41,7 @@ void MainWindow::on_buttonBack_pressed()
         break;
     case 7:
         ui->stackedWidget->setCurrentIndex(5);
+        dbconnection::log("Returned to withdraw");
         break;
     }
     ui->labelScanError->setText("");
@@ -54,6 +56,7 @@ void MainWindow::on_buttonBack_pressed()
 
 void MainWindow::on_buttonStop_pressed()
 {
+    dbconnection::log("Terminated session, back to start");
     ui->labelScanError->setText("");
     ui->labelPinError->setText("");
     ui->labelMenuError->setText("");
@@ -69,7 +72,8 @@ void MainWindow::on_buttonStop_pressed()
 
 //Start screen buttons
 void MainWindow::on_buttonStart_pressed()
-{  
+{
+    dbconnection::log("Start session, to card scan");
     ui->stackedWidget->setCurrentIndex(1);
     ui->buttonStop->setVisible(true);
 }
@@ -81,8 +85,7 @@ void MainWindow::on_buttonPinCorrection_pressed()
 void MainWindow::on_buttonPinConfirm_pressed()
 {
     pincode = ui->pwPincode->text();
-    if(pincode.length() == 4)
-    {
+
         int attempts = dbconnection::checkPin(pincode);
         if(attempts == 0)
         {
@@ -90,6 +93,7 @@ void MainWindow::on_buttonPinConfirm_pressed()
             {
                 ui->labelPinError->setText("");
                 ui->stackedWidget->setCurrentIndex(3);
+                dbconnection::log("Succesful login, to menu");
             }
             else
             {
@@ -100,15 +104,18 @@ void MainWindow::on_buttonPinConfirm_pressed()
         {
             if(!dbconnection::blocked())
             {
+                dbconnection::log("Not able to enter pin");
                 ui->labelPinError->setText("Pincode onjuist. U heeft nog "+QByteArray::number(3-attempts)+" pogingen over");
             }
             else
             {
+                dbconnection::log("Not able to enter pin, blocked card");
                 ui->buttonStop->setVisible(false);
                 ui->labelErrorMessage->setText("Pincode 3x onjuist ingevoerd. Uw pas is geblokkeerd.");
                 ui->stackedWidget->setCurrentIndex(9);
                 QTime dieTime= QTime::currentTime().addSecs(5);
-                while (QTime::currentTime() < dieTime) {
+                while (QTime::currentTime() < dieTime)
+                {
                     QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
                 }
                 on_buttonStop_pressed();
@@ -116,15 +123,14 @@ void MainWindow::on_buttonPinConfirm_pressed()
         }
         pincode = "";
         ui->pwPincode->setText("");
-    }
+
 }
 
 //Menu screen buttons
 void MainWindow::on_buttonSaldo_pressed()
 {
+    dbconnection::log("To balance screen");
     float saldo = dbconnection::getSaldo();
-    dbconnection::updateTransaction(0);
-    dbconnection::newAction("Saldo retrieved", 0);
     ui->labelSaldo->setText(QLocale().toCurrencyString(saldo));
     ui->stackedWidget->setCurrentIndex(4);
     ui->buttonBack->setVisible(true);
@@ -132,24 +138,29 @@ void MainWindow::on_buttonSaldo_pressed()
 
 void MainWindow::on_buttonOpnemen_pressed()
 {
+    dbconnection::log("To withdraw");
     ui->stackedWidget->setCurrentIndex(5);
     ui->buttonBack->setVisible(true);
 }
 
 void MainWindow::on_buttonSnel_pressed()
 {
-    if(dbconnection::withdraw(70)){
-        dbconnection::updateTransaction(70);
-        dbconnection::newAction("Money withdrawn", 70);
+    if(dbconnection::withdraw(70))
+    {
+        dbconnection::log("Quick press €70 withdraw");
         ui->stackedWidget->setCurrentIndex(8);
         ui->buttonBack->setVisible(false);
         ui->buttonStop->setVisible(false);
         QTime dieTime= QTime::currentTime().addSecs(5);
-        while (QTime::currentTime() < dieTime) {
+        while (QTime::currentTime() < dieTime)
+        {
             QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
         }
         on_buttonStop_pressed();
-    } else {
+    }
+    else
+    {
+        dbconnection::log("Quick withdraw €70 fails");
         ui->labelMenuError->setText("Onvoldoende saldo");
     }
 }
@@ -158,12 +169,14 @@ void MainWindow::on_buttonSnel_pressed()
 void MainWindow::on_button100_pressed()
 {
     if(dbconnection::withdraw(100)){
-        dbconnection::updateTransaction(100);
-        dbconnection::newAction("Money withdrawn", 100);
+        dbconnection::log("Withdraw €100");
         ui->stackedWidget->setCurrentIndex(6);
         ui->buttonBack->setVisible(false);
         ui->buttonStop->setVisible(false);
-    } else {
+    }
+    else
+    {
+        dbconnection::log("Withdrawing €100 fails");
         ui->labelOpnemenError->setText("Onvoldoende saldo");
     }
 }
@@ -171,12 +184,14 @@ void MainWindow::on_button100_pressed()
 void MainWindow::on_button20_pressed()
 {
     if(dbconnection::withdraw(20)){
-        dbconnection::updateTransaction(20);
-        dbconnection::newAction("Money withdrawn", 20);
+        dbconnection::log("Withdraw €20");
         ui->stackedWidget->setCurrentIndex(6);
         ui->buttonBack->setVisible(false);
         ui->buttonStop->setVisible(false);
-    } else {
+    }
+    else
+    {
+        dbconnection::log("Withdrawing €20 fails");
         ui->labelOpnemenError->setText("Onvoldoende saldo");
     }
 }
@@ -184,12 +199,14 @@ void MainWindow::on_button20_pressed()
 void MainWindow::on_button200_pressed()
 {
     if(dbconnection::withdraw(200)){
-        dbconnection::updateTransaction(200);
-        dbconnection::newAction("Money withdrawn", 200);
+        dbconnection::log("Withdraw €200");
         ui->stackedWidget->setCurrentIndex(6);
         ui->buttonBack->setVisible(false);
         ui->buttonStop->setVisible(false);
-    } else {
+    }
+    else
+    {
+        dbconnection::log("Withdrawing €200 fails");
         ui->labelOpnemenError->setText("Onvoldoende saldo");
     }
 }
@@ -197,12 +214,14 @@ void MainWindow::on_button200_pressed()
 void MainWindow::on_button50_pressed()
 {
     if(dbconnection::withdraw(50)){
-        dbconnection::updateTransaction(50);
-        dbconnection::newAction("Money withdrawn", 50);
+        dbconnection::log("Withdraw €50");
         ui->stackedWidget->setCurrentIndex(6);
         ui->buttonBack->setVisible(false);
         ui->buttonStop->setVisible(false);
-    } else {
+    }
+    else
+    {
+        dbconnection::log("Withdrawing €50 fails");
         ui->labelOpnemenError->setText("Onvoldoende saldo");
     }
 }
@@ -210,18 +229,21 @@ void MainWindow::on_button50_pressed()
 void MainWindow::on_button500_pressed()
 {
     if(dbconnection::withdraw(500)){
-        dbconnection::updateTransaction(500);
-        dbconnection::newAction("Money withdrawn", 500);
+        dbconnection::log("Withdraw €500");
         ui->stackedWidget->setCurrentIndex(6);
         ui->buttonBack->setVisible(false);
         ui->buttonStop->setVisible(false);
-    } else {
+    }
+    else
+    {
+        dbconnection::log("Withdrawing €500 fails");
         ui->labelOpnemenError->setText("Onvoldoende saldo");
     }
 }
 
 void MainWindow::on_buttonAnders_pressed()
 {
+    dbconnection::log("To withdraw different amount");
     ui->stackedWidget->setCurrentIndex(7);
 }
 
@@ -232,22 +254,31 @@ void MainWindow::on_buttonBedragCorrectie_pressed()
 void MainWindow::on_buttonBedragConfirm_pressed()
 {
     anderBedrag = ui->txtBedrag->text();
-    if(anderBedrag.toInt() % 10 == 0){
-        if(anderBedrag.toInt() > 9 && anderBedrag.toInt() < 501){
+    if(anderBedrag.toInt() % 10 == 0)
+    {
+        if(anderBedrag.toInt() > 9 && anderBedrag.toInt() < 501)
+        {
             qDebug(QByteArray::number(anderBedrag.toFloat()));
-            if(dbconnection::withdraw(anderBedrag.toFloat())){
-                dbconnection::updateTransaction(anderBedrag.toFloat());
-                dbconnection::newAction("Money withdrawn", anderBedrag.toFloat());
+            if(dbconnection::withdraw(anderBedrag.toFloat()))
+            {
+                dbconnection::log("Withdrew different amount");
                 ui->stackedWidget->setCurrentIndex(6);
                 ui->buttonBack->setVisible(false);
                 ui->buttonStop->setVisible(false);
-            } else {
+            }
+            else
+            {
+                dbconnection::log("Withdraw different amount fails");
                 ui->labelAndersError->setText("Onvoldoende saldo");
             }
-        } else {
+        }
+        else
+        {
             ui->labelAndersError->setText("Bedrag moet tussen de 10 en 500 liggen");
         }
-    } else {
+    }
+    else
+    {
         ui->labelAndersError->setText("Bedrag moet een veelvoud zijn van 10");
     }
     anderBedrag = "";
@@ -257,9 +288,11 @@ void MainWindow::on_buttonBedragConfirm_pressed()
 //Bon screen buttons
 void MainWindow::on_buttonBonYes_pressed()
 {
+    dbconnection::log("Reciept wanted");
     ui->stackedWidget->setCurrentIndex(8);
     QTime dieTime= QTime::currentTime().addSecs(5);
-    while (QTime::currentTime() < dieTime) {
+    while (QTime::currentTime() < dieTime)
+    {
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
     }
     on_buttonStop_pressed();
@@ -267,9 +300,11 @@ void MainWindow::on_buttonBonYes_pressed()
 
 void MainWindow::on_buttonBonNo_pressed()
 {
+    dbconnection::log("No reciept wanted");
     ui->stackedWidget->setCurrentIndex(8);
     QTime dieTime= QTime::currentTime().addSecs(5);
-    while (QTime::currentTime() < dieTime) {
+    while (QTime::currentTime() < dieTime)
+    {
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
     }
     on_buttonStop_pressed();
@@ -278,14 +313,17 @@ void MainWindow::on_buttonBonNo_pressed()
 //DEBUG BUTTONS
 void MainWindow::on_buttonSkipDebug_pressed()
 { 
-    if(dbconnection::card("505B8A7C")){
-        dbconnection::createTransaction();
-        if(!dbconnection::blocked()){
-            dbconnection::newAction("Card scan succesful", 0);
+    if(dbconnection::card("505B8A7C"))
+    {
+        if(!dbconnection::blocked())
+        {
+            dbconnection::log("Card succesfully scanned, to menu");
             ui->labelScanError->setText("");
             ui->stackedWidget->setCurrentIndex(2);
-        } else {
-            dbconnection::newAction("Card scan failed. Blocked", 0);
+        }
+        else
+        {
+            dbconnection::log("Card scanning fails, card blocked");
             ui->labelScanError->setText("Kaart geblokkeerd. Neem contact op met uw bank.");
         }
     }
@@ -293,13 +331,16 @@ void MainWindow::on_buttonSkipDebug_pressed()
 
 void MainWindow::on_buttonSkipDebug_pressed(QByteArray nuid)
 {
-    if(dbconnection::card(nuid)){
-        dbconnection::createTransaction();
-        if(!dbconnection::blocked()){
-            dbconnection::newAction("Card scan succesful", 0);
+    if(dbconnection::card(nuid))
+    {
+        if(!dbconnection::blocked())
+        {
+            dbconnection::log("Card succesfully scanned, to menu");
             ui->stackedWidget->setCurrentIndex(2);
-        } else {
-            dbconnection::newAction("Card scan failed. Blocked", 0);
+        }
+        else
+        {
+            dbconnection::log("Card scanning fails, card blocked");
             ui->labelScanError->setText("Kaart geblokkeerd. Neem contact op met uw bank");
         }
     }
@@ -317,28 +358,38 @@ int MainWindow::getIndex()
 }
 
 //Inserting stuff
-void MainWindow::insertPincode(QByteArray key){
-    if(key == "A"){
-        if(pincode.length()>0){
+void MainWindow::insertPincode(QByteArray key)
+{
+    if(key == "A")
+    {
+        if(pincode.length()>0)
+        {
             pincode.remove(pincode.length() -1, 1);
         }
     }
-    else {
-        if(pincode.length()<4){
+    else
+    {
+        if(pincode.length()<5)
+        {
             pincode.append(key);
         }
     }
     ui->pwPincode->setText(pincode);
 }
 
-void MainWindow::insertAnderBedrag(QByteArray key){
-    if(key == "A"){
-        if(anderBedrag.length()>0){
+void MainWindow::insertAnderBedrag(QByteArray key)
+{
+    if(key == "A")
+    {
+        if(anderBedrag.length()>0)
+        {
             anderBedrag.remove(anderBedrag.length() -1, 1);
         }
     }
-    else {
-        if(anderBedrag.length()<3){
+    else
+    {
+        if(anderBedrag.length()<3)
+        {
             anderBedrag.append(key);
         }
     }
