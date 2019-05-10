@@ -37,7 +37,7 @@
     <string notr="true">background-color: rgb(106, 149, 123);</string>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>10</number>
    </property>
    <widget class="QWidget" name="start">
     <property name="enabled">
@@ -210,7 +210,7 @@
      <property name="font">
       <font>
        <family>Arial</family>
-       <pointsize>48</pointsize>
+       <pointsize>61</pointsize>
        <stylestrategy>PreferAntialias</stylestrategy>
       </font>
      </property>
@@ -942,6 +942,133 @@ background-color: rgb(186, 189, 182);</string>
      </property>
     </widget>
    </widget>
+   <widget class="QWidget" name="biljet">
+    <widget class="QLabel" name="labelBiljetError">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>140</y>
+       <width>1121</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>30</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(164, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelKiesBiljet">
+     <property name="geometry">
+      <rect>
+       <x>705</x>
+       <y>0</y>
+       <width>510</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>42</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Kies je biljet</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="buttonBiljet50">
+     <property name="geometry">
+      <rect>
+       <x>1520</x>
+       <y>160</y>
+       <width>400</width>
+       <height>150</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>3) 50</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="buttonMaaktNietUit">
+     <property name="geometry">
+      <rect>
+       <x>1520</x>
+       <y>470</y>
+       <width>400</width>
+       <height>150</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>4) Maakt niet uit</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="buttonBiljet20">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>470</y>
+       <width>400</width>
+       <height>150</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>2) 20</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="buttonBiljet10">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>160</y>
+       <width>400</width>
+       <height>150</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>36</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>1) 10</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QLabel" name="labelTitle">
    <property name="geometry">
@@ -1022,49 +1149,6 @@ background-color: rgb(186, 189, 182);</string>
    </property>
    <property name="checked">
     <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="saatbank">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>49</y>
-     <width>510</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="resources.qrc">:/Images/Resources/Images/saatbank-logo.jpg</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="saattext">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>510</width>
-     <height>49</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>30</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(186, 189, 182);</string>
-   </property>
-   <property name="text">
-    <string>Onderdeel van:</string>
    </property>
   </widget>
  </widget>

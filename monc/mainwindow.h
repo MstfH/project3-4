@@ -40,6 +40,11 @@ public slots:
     void on_buttonBedragCorrectie_pressed();
     void on_buttonBedragConfirm_pressed();
 
+    void on_buttonBiljet10_pressed();
+    void on_buttonBiljet20_pressed();
+    void on_buttonBiljet50_pressed();
+    void on_buttonMaaktNietUit_pressed();
+
     void on_buttonBonYes_pressed();
     void on_buttonBonNo_pressed();
 
@@ -55,7 +60,10 @@ public slots:
 private:
     Ui::MainWindow *ui;
     static QString pincode;
-    static QString anderBedrag;
+    static QString bedrag;
+    static QString biljet10;
+    static QString biljet20;
+    static QString biljet50;
 };
 
 #endif // MAINWINDOW_H

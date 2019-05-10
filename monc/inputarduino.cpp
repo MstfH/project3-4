@@ -72,100 +72,90 @@ void InputArduino::keys(QByteArray data)
 
 void InputArduino::pageScan(QByteArray key)
 {
-    if(key == "#"){
+    if(key == "#")
         a->on_buttonStop_pressed();
-    }
 }
 
 void InputArduino::pagePincode(QByteArray key)
 {
-    if(key == "#"){
+    if(key == "#")
         a->on_buttonStop_pressed();
-    }
-    else if(key == "0" || key == "1" || key == "2" || key == "3" || key == "4" || key == "5" || key == "6" || key == "7" || key == "8" || key == "9" || key == "A") {
+    else if(key == "0" || key == "1" || key == "2" || key == "3" || key == "4" || key == "5" || key == "6" || key == "7" || key == "8" || key == "9" || key == "A")
         a->insertPincode(key);
-    }
-    else if(key == "D") {
+    else if(key == "D")
         a->on_buttonPinConfirm_pressed();
-    }
 }
 
 void InputArduino::pageMenu(QByteArray key)
 {
-    if(key == "#"){
+    if(key == "#")
         a->on_buttonStop_pressed();
-    }
-    else if(key == "A"){
+    else if(key == "A")
         a->on_buttonSaldo_pressed();
-    }
-    else if(key == "B"){
+    else if(key == "B")
         a->on_buttonOpnemen_pressed();
-    }
-    else if(key == "C"){
+    else if(key == "C")
         a->on_buttonSnel_pressed();
-    }
 }
 
 void InputArduino::pageSaldo(QByteArray key)
 {
-    if(key == "#"){
+    if(key == "#")
         a->on_buttonStop_pressed();
-    }
-    else if(key == "*"){
+    else if(key == "*")
         a->on_buttonBack_pressed();
-    }
 }
 
 void InputArduino::pageOpnemen(QByteArray key)
 {
-    if(key == "#"){
+    if(key == "#")
         a->on_buttonStop_pressed();
-    }
-    else if(key =="*"){
+    else if(key =="*")
         a->on_buttonBack_pressed();
-    }
-    else if(key== "1"){
+    else if(key== "1")
         a->on_button20_pressed();
-    }
-    else if(key == "2"){
+    else if(key == "2")
         a->on_button50_pressed();
-    }
-    else if(key == "3"){
+    else if(key == "3")
         a->on_button100_pressed();
-    }
-    else if(key == "4"){
+    else if(key == "4")
         a->on_button200_pressed();
-    }
-    else if(key == "5"){
+    else if(key == "5")
         a->on_button500_pressed();
-    }
-    else if(key == "6"){
+    else if(key == "6")
         a->on_buttonAnders_pressed();
-    }
 }
 
 void InputArduino::pageBon(QByteArray key)
 {
-    if(key =="A"){
+    if(key =="A")
         a->on_buttonBonYes_pressed();
-    }
-    else if(key =="D") {
+    else if(key =="D")
         a->on_buttonBonNo_pressed();
-    }
 }
 
 void InputArduino::pageAnders(QByteArray key)
 {
-    if(key == "#"){
+    if(key == "#")
         a->on_buttonStop_pressed();
-    }
-    else if(key == "0" || key == "1" || key == "2" || key == "3" || key == "4" || key == "5" || key == "6" || key == "7" || key == "8" || key == "9" || key == "A") {
+    else if(key == "0" || key == "1" || key == "2" || key == "3" || key == "4" || key == "5" || key == "6" || key == "7" || key == "8" || key == "9" || key == "A")
         a->insertAnderBedrag(key);
-    }
-    else if(key == "D") {
+    else if(key == "D")
         a->on_buttonBedragConfirm_pressed();
-    }
-    else if(key =="*") {
+    else if(key =="*")
         a->on_buttonBack_pressed();
-    }
 }
+
+void InputArduino::pageBiljet(QByteArray key)
+{
+    if(key == "1")
+        a->on_buttonBiljet10_pressed();
+    else if(key == "2")
+        a->on_buttonBiljet20_pressed();
+    else if(key == "3")
+        a->on_buttonBiljet50_pressed();
+    else if(key == "4")
+        a->on_buttonMaaktNietUit_pressed();
+}
+
+

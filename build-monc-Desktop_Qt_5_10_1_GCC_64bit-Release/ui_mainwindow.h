@@ -156,7 +156,7 @@ public:
         pwPincode->setGeometry(QRect(730, 264, 450, 151));
         QFont font5;
         font5.setFamily(QStringLiteral("Arial"));
-        font5.setPointSize(48);
+        font5.setPointSize(61);
         font5.setStyleStrategy(QFont::PreferAntialias);
         pwPincode->setFont(font5);
         pwPincode->setLayoutDirection(Qt::LeftToRight);
@@ -398,12 +398,14 @@ public:
         buttonBack->setChecked(false);
         saatbank = new QLabel(MainWindow);
         saatbank->setObjectName(QStringLiteral("saatbank"));
+        saatbank->setEnabled(true);
         saatbank->setGeometry(QRect(0, 49, 510, 151));
         saatbank->setPixmap(QPixmap(QString::fromUtf8(":/Images/Resources/Images/saatbank-logo.jpg")));
         saatbank->setScaledContents(true);
         saatbank->setAlignment(Qt::AlignCenter);
         saattext = new QLabel(MainWindow);
         saattext->setObjectName(QStringLiteral("saattext"));
+        saattext->setEnabled(true);
         saattext->setGeometry(QRect(0, 0, 510, 49));
         QFont font17;
         font17.setPointSize(30);
@@ -412,7 +414,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

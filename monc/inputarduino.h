@@ -21,6 +21,7 @@ private:
     void pageOpnemen(QByteArray);
     void pageBon(QByteArray);
     void pageAnders(QByteArray);
+    void pageBiljet(QByteArray);
 };
 
 #endif // INPUTARDUINO_H

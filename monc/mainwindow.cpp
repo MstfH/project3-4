@@ -5,7 +5,10 @@
 #include <QTime>
 
 QString MainWindow::pincode;
-QString MainWindow::anderBedrag;
+QString MainWindow::bedrag;
+QString MainWindow::biljet10;
+QString MainWindow::biljet20;
+QString MainWindow::biljet50;
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent), ui(new Ui::MainWindow)
 {
@@ -43,15 +46,20 @@ void MainWindow::on_buttonBack_pressed()
         ui->stackedWidget->setCurrentIndex(5);
         dbconnection::log("Returned to withdraw");
         break;
+    case 11:
+        ui->stackedWidget->setCurrentIndex(5);
+        dbconnection::log("Returned to withdraw");
+        break;
     }
     ui->labelScanError->setText("");
     ui->labelPinError->setText("");
     ui->labelMenuError->setText("");
     ui->labelOpnemenError->setText("");
     ui->labelAndersError->setText("");
+    ui->labelBiljetError->setText("");
     ui->labelErrorMessage->setText("");
     ui->txtBedrag->setText("");
-    anderBedrag = "";
+    bedrag = "";
 }
 
 void MainWindow::on_buttonStop_pressed()
@@ -60,6 +68,7 @@ void MainWindow::on_buttonStop_pressed()
     ui->labelScanError->setText("");
     ui->labelPinError->setText("");
     ui->labelMenuError->setText("");
+    ui->labelBiljetError->setText("");
     ui->labelOpnemenError->setText("");
     ui->labelAndersError->setText("");
     ui->labelErrorMessage->setText("");
@@ -149,6 +158,7 @@ void MainWindow::on_buttonSnel_pressed()
     {
         dbconnection::log("Quick press €70 withdraw");
         ui->stackedWidget->setCurrentIndex(8);
+        bedrag=70;
         ui->buttonBack->setVisible(false);
         ui->buttonStop->setVisible(false);
         QTime dieTime= QTime::currentTime().addSecs(5);
@@ -170,7 +180,8 @@ void MainWindow::on_button100_pressed()
 {
     if(dbconnection::withdraw(100)){
         dbconnection::log("Withdraw €100");
-        ui->stackedWidget->setCurrentIndex(6);
+        bedrag=100;
+        ui->stackedWidget->setCurrentIndex(11);
         ui->buttonBack->setVisible(false);
         ui->buttonStop->setVisible(false);
     }
@@ -185,7 +196,8 @@ void MainWindow::on_button20_pressed()
 {
     if(dbconnection::withdraw(20)){
         dbconnection::log("Withdraw €20");
-        ui->stackedWidget->setCurrentIndex(6);
+        bedrag=20;
+        ui->stackedWidget->setCurrentIndex(11);
         ui->buttonBack->setVisible(false);
         ui->buttonStop->setVisible(false);
     }
@@ -200,7 +212,8 @@ void MainWindow::on_button200_pressed()
 {
     if(dbconnection::withdraw(200)){
         dbconnection::log("Withdraw €200");
-        ui->stackedWidget->setCurrentIndex(6);
+        bedrag=200;
+        ui->stackedWidget->setCurrentIndex(11);
         ui->buttonBack->setVisible(false);
         ui->buttonStop->setVisible(false);
     }
@@ -215,7 +228,8 @@ void MainWindow::on_button50_pressed()
 {
     if(dbconnection::withdraw(50)){
         dbconnection::log("Withdraw €50");
-        ui->stackedWidget->setCurrentIndex(6);
+        bedrag=50;
+        ui->stackedWidget->setCurrentIndex(11);
         ui->buttonBack->setVisible(false);
         ui->buttonStop->setVisible(false);
     }
@@ -230,7 +244,8 @@ void MainWindow::on_button500_pressed()
 {
     if(dbconnection::withdraw(500)){
         dbconnection::log("Withdraw €500");
-        ui->stackedWidget->setCurrentIndex(6);
+        bedrag=500;
+        ui->stackedWidget->setCurrentIndex(11);
         ui->buttonBack->setVisible(false);
         ui->buttonStop->setVisible(false);
     }
@@ -253,16 +268,16 @@ void MainWindow::on_buttonBedragCorrectie_pressed()
 
 void MainWindow::on_buttonBedragConfirm_pressed()
 {
-    anderBedrag = ui->txtBedrag->text();
-    if(anderBedrag.toInt() % 10 == 0)
+    bedrag = ui->txtBedrag->text();
+    if(bedrag.toInt() % 10 == 0)
     {
-        if(anderBedrag.toInt() > 9 && anderBedrag.toInt() < 501)
+        if(bedrag.toInt() > 9 && bedrag.toInt() < 501)
         {
-            qDebug(QByteArray::number(anderBedrag.toFloat()));
-            if(dbconnection::withdraw(anderBedrag.toFloat()))
+            qDebug(QByteArray::number(bedrag.toFloat()));
+            if(dbconnection::withdraw(bedrag.toFloat()))
             {
                 dbconnection::log("Withdrew different amount");
-                ui->stackedWidget->setCurrentIndex(6);
+                ui->stackedWidget->setCurrentIndex(11);
                 ui->buttonBack->setVisible(false);
                 ui->buttonStop->setVisible(false);
             }
@@ -281,9 +296,114 @@ void MainWindow::on_buttonBedragConfirm_pressed()
     {
         ui->labelAndersError->setText("Bedrag moet een veelvoud zijn van 10");
     }
-    anderBedrag = "";
+    bedrag = "";
     ui->txtBedrag->setText("");
 }
+
+//Biljet screen buttons
+void MainWindow::on_buttonBiljet10_pressed()
+{
+    dbconnection::log("Biljet of 10 wanted");
+    biljet10 = bedrag.toInt()/10;
+    qDebug()<<"Aantal biljetten van 10: "<<biljet10;
+    ui->stackedWidget->setCurrentIndex(6);
+    ui->buttonBack->setVisible(false);
+    ui->buttonStop->setVisible(false);
+}
+
+void MainWindow::on_buttonBiljet20_pressed()
+{
+    dbconnection::log("Biljet of 20 wanted");
+    if(bedrag.toInt() % 20 == 0)
+    {
+        biljet20 = bedrag.toInt()/20;
+        qDebug()<<"Aantal biljetten van 20: "<<biljet20;
+        ui->stackedWidget->setCurrentIndex(6);
+        ui->buttonBack->setVisible(false);
+        ui->buttonStop->setVisible(false);
+    }
+    else
+    {
+        biljet20=(bedrag.toInt()-(bedrag.toInt()%20))/20;
+        biljet10=(bedrag.toInt()%20)/10;
+        qDebug()<<"Aantal biljetten van 10: "<<biljet10;
+        qDebug()<<"Aantal biljetten van 20: "<<biljet20;
+        ui->stackedWidget->setCurrentIndex(6);
+        ui->buttonBack->setVisible(false);
+        ui->buttonStop->setVisible(false);
+    }
+}
+
+void MainWindow::on_buttonBiljet50_pressed()
+{
+    dbconnection::log("Biljet of 50 wanted");
+    if(bedrag.toInt()%50==0)
+    {
+        biljet50 = bedrag.toInt()/50;
+        qDebug()<<"Aantal biljetten van 50: "<<biljet50;
+        ui->stackedWidget->setCurrentIndex(6);
+        ui->buttonBack->setVisible(false);
+        ui->buttonStop->setVisible(false);
+    }
+    else if((bedrag.toInt()%50)%20==0)
+    {
+        biljet50=(bedrag.toInt()-(bedrag.toInt()%50))/50;
+        biljet20=(bedrag.toInt()%50)/20;
+        qDebug()<<"Aantal biljetten van 20: "<<biljet20;
+        qDebug()<<"Aantal biljetten van 50: "<<biljet50;
+        ui->stackedWidget->setCurrentIndex(6);
+        ui->buttonBack->setVisible(false);
+        ui->buttonStop->setVisible(false);
+    }
+    else
+    {
+        biljet50=(bedrag.toInt()-(bedrag.toInt()%50))/50;
+        biljet20=(bedrag.toInt()%50-(bedrag.toInt()%50%20))/20;
+        biljet10=(bedrag.toInt()%50%20)/10;
+        qDebug()<<"Aantal biljetten van 10: "<<biljet10;
+        qDebug()<<"Aantal biljetten van 20: "<<biljet20;
+        qDebug()<<"Aantal biljetten van 50: "<<biljet50;
+        ui->stackedWidget->setCurrentIndex(6);
+        ui->buttonBack->setVisible(false);
+        ui->buttonStop->setVisible(false);
+    }
+}
+
+void MainWindow::on_buttonMaaktNietUit_pressed()
+{
+    dbconnection::log("Biljet does not matter");
+    if(bedrag.toInt()%50==0)
+    {
+        biljet50 = bedrag.toInt()/50;
+        qDebug()<<"Aantal biljetten van 50: "<<biljet50;
+        ui->stackedWidget->setCurrentIndex(6);
+        ui->buttonBack->setVisible(false);
+        ui->buttonStop->setVisible(false);
+    }
+    else if((bedrag.toInt()%50)%20==0)
+    {
+        biljet50=(bedrag.toInt()-(bedrag.toInt()%50))/50;
+        biljet20=(bedrag.toInt()%50)/20;
+        qDebug()<<"Aantal biljetten van 20:"<<biljet20;
+        qDebug()<<"Aantal biljetten van 50: "<<biljet50;
+        ui->stackedWidget->setCurrentIndex(6);
+        ui->buttonBack->setVisible(false);
+        ui->buttonStop->setVisible(false);
+    }
+    else
+    {
+        biljet50=(bedrag.toInt()-(bedrag.toInt()%50))/50;
+        biljet20=(bedrag.toInt()%50-(bedrag.toInt()%50%20))/20;
+        biljet10=(bedrag.toInt()%50%20)/10;
+        qDebug()<<"Aantal biljetten van 10: "<<biljet10;
+        qDebug()<<"Aantal biljetten van 20: "<<biljet20;
+        qDebug()<<"Aantal biljetten van 50: "<<biljet50;
+        ui->stackedWidget->setCurrentIndex(6);
+        ui->buttonBack->setVisible(false);
+        ui->buttonStop->setVisible(false);
+    }
+}
+
 
 //Bon screen buttons
 void MainWindow::on_buttonBonYes_pressed()
@@ -381,19 +501,19 @@ void MainWindow::insertAnderBedrag(QByteArray key)
 {
     if(key == "A")
     {
-        if(anderBedrag.length()>0)
+        if(bedrag.length()>0)
         {
-            anderBedrag.remove(anderBedrag.length() -1, 1);
+            bedrag.remove(bedrag.length() -1, 1);
         }
     }
     else
     {
-        if(anderBedrag.length()<3)
+        if(bedrag.length()<3)
         {
-            anderBedrag.append(key);
+            bedrag.append(key);
         }
     }
-    ui->txtBedrag->setText(anderBedrag);
+    ui->txtBedrag->setText(bedrag);
 }
 
 //Close window

@@ -226,7 +226,7 @@ DIST          = ../../../Qt/5.10.1/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.10.1/gcc_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.10.1/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../Qt/5.10.1/gcc_64/mkspecs/features/spec_post.prf \
-		../.qmake.stash \
+		../monc/.qmake.stash \
 		../../../Qt/5.10.1/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.10.1/gcc_64/mkspecs/features/toolchain.prf \
 		../../../Qt/5.10.1/gcc_64/mkspecs/features/default_pre.prf \
@@ -427,7 +427,7 @@ Makefile: ../monc/monc.pro ../../../Qt/5.10.1/gcc_64/mkspecs/linux-g++/qmake.con
 		../../../Qt/5.10.1/gcc_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.10.1/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../Qt/5.10.1/gcc_64/mkspecs/features/spec_post.prf \
-		../.qmake.stash \
+		.qmake.stash \
 		../../../Qt/5.10.1/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.10.1/gcc_64/mkspecs/features/toolchain.prf \
 		../../../Qt/5.10.1/gcc_64/mkspecs/features/default_pre.prf \
@@ -617,7 +617,7 @@ Makefile: ../monc/monc.pro ../../../Qt/5.10.1/gcc_64/mkspecs/linux-g++/qmake.con
 ../../../Qt/5.10.1/gcc_64/mkspecs/features/qt_config.prf:
 ../../../Qt/5.10.1/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../../Qt/5.10.1/gcc_64/mkspecs/features/spec_post.prf:
-../.qmake.stash:
+.qmake.stash:
 ../../../Qt/5.10.1/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/5.10.1/gcc_64/mkspecs/features/toolchain.prf:
 ../../../Qt/5.10.1/gcc_64/mkspecs/features/default_pre.prf:
@@ -671,6 +671,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) $(TARGET) 
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -813,7 +814,7 @@ moc_mainwindow.cpp: ../../../Qt/5.10.1/gcc_64/include/QtWidgets/QWidget \
 		../monc/mainwindow.h \
 		moc_predefs.h \
 		../../../Qt/5.10.1/gcc_64/bin/moc
-	/home/mostafah/Qt/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/mostafah/Qt/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/mostafah/Documents/project3-4/monc -I/home/mostafah/Qt/5.10.1/gcc_64/include -I/home/mostafah/Qt/5.10.1/gcc_64/include/QtWidgets -I/home/mostafah/Qt/5.10.1/gcc_64/include/QtGui -I/home/mostafah/Qt/5.10.1/gcc_64/include/QtSerialPort -I/home/mostafah/Qt/5.10.1/gcc_64/include/QtSql -I/home/mostafah/Qt/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I/usr/include/c++/7.3.1 -I/usr/include/c++/7.3.1/x86_64-pc-linux-gnu -I/usr/include/c++/7.3.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.3.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/7.3.1/include-fixed -I/usr/include ../monc/mainwindow.h -o moc_mainwindow.cpp
+	/home/mostafah/Qt/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/mostafah/Qt/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/mostafah/Documents/project3-4/monc -I/home/mostafah/Qt/5.10.1/gcc_64/include -I/home/mostafah/Qt/5.10.1/gcc_64/include/QtWidgets -I/home/mostafah/Qt/5.10.1/gcc_64/include/QtGui -I/home/mostafah/Qt/5.10.1/gcc_64/include/QtSerialPort -I/home/mostafah/Qt/5.10.1/gcc_64/include/QtSql -I/home/mostafah/Qt/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/8.1.0 -I/usr/include/c++/8.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/8.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.0/include-fixed -I/usr/include ../monc/mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1068,6 +1069,51 @@ mainwindow.o: ../monc/mainwindow.cpp ../monc/mainwindow.h \
 		../../../Qt/5.10.1/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.10.1/gcc_64/include/QtGui/QCloseEvent \
 		ui_mainwindow.h \
+		../../../Qt/5.10.1/gcc_64/include/QtCore/QVariant \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/QAction \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt/5.10.1/gcc_64/include/QtGui/qicon.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.10.1/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.10.1/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.10.1/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.10.1/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.10.1/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/5.10.1/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/5.10.1/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt/5.10.1/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.10.1/gcc_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.10.1/gcc_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.10.1/gcc_64/include/QtGui/qpen.h \
+		../../../Qt/5.10.1/gcc_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/QStackedWidget \
+		../../../Qt/5.10.1/gcc_64/include/QtWidgets/qstackedwidget.h \
 		../monc/serialread.h \
 		../../../Qt/5.10.1/gcc_64/include/QtSerialPort/QSerialPort \
 		../../../Qt/5.10.1/gcc_64/include/QtSerialPort/qserialport.h \

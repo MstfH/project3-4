@@ -11,12 +11,12 @@ QByteArray dbconnection::transactie;
 
 dbconnection::dbconnection()
 {
-    db = QSqlDatabase::addDatabase("QMYSQL", "saatbank");
-    db.setHostName("145.24.222.155");
-    db.setDatabaseName("saatbank");
-    db.setUserName("monc");
-    db.setPassword("2eAzWh2YqztmMVwq");
-    db.setPort(8888);//open poort op hogeschool server vinden
+    db = QSqlDatabase::addDatabase("QMYSQL", "monc");
+    db.setHostName("127.0.0.1");
+    db.setDatabaseName("monc");
+    db.setUserName("root");
+    db.setPassword("root");
+    db.setPort(3306);//open poort op hogeschool server vinden
     bool ok = db.open();
     if(ok) {
         qDebug("Db connection established");
